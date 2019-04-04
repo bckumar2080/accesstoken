@@ -19,7 +19,7 @@ const (
 	ivPassword     = "password"
 	ivScope        = "scope"
 	ivbasicauth    = "basicauth"
-	url            = "https://dev.api.biogen.com/v3/token"
+	url            = "https://api.mashery.com/v3/token"
 	ovToken        = "accesstoken"
 	ovTokenType    = "tokentype"
 	ovExpires      = "expiresin"
