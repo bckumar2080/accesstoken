@@ -17,14 +17,10 @@ const (
 	grantType      = "password"
 	ivUsername     = "username"
 	ivPassword     = "password"
-	ivScope        = "scope"
 	ivBasicAuth    = "basicauth"
 	ivUrl          = "accessUrl"
 	ovToken        = "accesstoken"
 	ovTokenType    = "tokentype"
-	ovExpires      = "expiresin"
-	ovRefreshToken = "refreshtoken"
-	ovScope        = "scope"
 )
 
 // log is the default package logger
@@ -52,12 +48,11 @@ func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 	username := context.GetInput(ivUsername).(string)
 	password := context.GetInput(ivPassword).(string)
 	url := context.GetInput(ivUrl).(string)
-	scope := context.GetInput(ivScope).(string)
-    auth := context.GetInput(ivBasicAuth).(string)
+	auth := context.GetInput(ivBasicAuth).(string)
 	encodedAuth := b64.StdEncoding.EncodeToString([]byte(auth))
 
 	// Get the token from TIBCO Cloud Mashery
-	payload := strings.NewReader(fmt.Sprintf("grant_type=%s&username=%s&password=%s&scope=%s", grantType, username, password, scope))
+	payload := strings.NewReader(fmt.Sprintf("grant_type=%s&username=%s&password=%s", grantType, username, password))
 
 	req, err := http.NewRequest("POST", url, payload)
 	if err != nil {
@@ -84,9 +79,6 @@ func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 	if err := json.Unmarshal(body, &data); err != nil {
 		return false, err
 	}
-	context.SetOutput(ovExpires, data["expires_in"])
-	context.SetOutput(ovRefreshToken, data["refresh_token"])
-	context.SetOutput(ovScope, data["scope"])
 	context.SetOutput(ovToken, data["access_token"])
 	context.SetOutput(ovTokenType, data["token_type"])
 
