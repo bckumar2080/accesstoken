@@ -5,7 +5,7 @@
     "version": "0.2.0",
     "title": "Access Token",
     "description": "Get a Access Token",
-    "author": "retgits",
+    "author": "charish",
     "homepage": "https://github.com/bckumar2080/accesstoken",
     "inputs": [
         {
@@ -15,11 +15,6 @@
         },
         {
             "name": "password",
-            "type": "string",
-            "required": true
-        },
-        {
-            "name": "scope",
             "type": "string",
             "required": true
         },
@@ -49,10 +44,6 @@
         },
         {
             "name": "refreshtoken",
-            "type": "string"
-        },
-        {
-            "name": "scope",
             "type": "string"
         }
     ]
