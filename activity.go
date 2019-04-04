@@ -18,8 +18,7 @@ const (
 	ivUsername     = "username"
 	ivPassword     = "password"
 	ivScope        = "scope"
-	ivclient_id    = "client_id"
-	ivclient_secret= "client_secret"
+	ivbasicauth    = "basicauth"
 	url            = "https://dev.api.biogen.com/v3/token"
 	ovToken        = "accesstoken"
 	ovTokenType    = "tokentype"
@@ -53,12 +52,11 @@ func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 	username := context.GetInput(ivUsername).(string)
 	password := context.GetInput(ivPassword).(string)
 	scope := context.GetInput(ivScope).(string)
-	client_id := context.GetInput(ivclient_id).(string)
-	client_secret := context.GetInput(ivclient_secret).(string)
-	encodedAuth := b64.StdEncoding.EncodeToString([]byte(client_id,client_secret))
+	auth := context.GetInput(ivbasicauth).(string)
+	encodedAuth := b64.StdEncoding.EncodeToString([]byte(auth))
 
 	// Get the token from TIBCO Cloud Mashery
-	payload := strings.NewReader(fmt.Sprintf("grant_type=%s&username=%s&password=%s&scope=%s&client_id=%s&client_secret=%s", grantType, username, password, scope, client_id, client_secret))
+	payload := strings.NewReader(fmt.Sprintf("grant_type=%s&username=%s&password=%s&scope=%s", grantType, username, password, scope))
 
 	req, err := http.NewRequest("POST", url, payload)
 	if err != nil {
