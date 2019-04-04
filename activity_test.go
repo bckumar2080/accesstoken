@@ -51,7 +51,6 @@ func TestEvalGzip(t *testing.T) {
 	//setup attrs
 	tc.SetInput("username", "")
 	tc.SetInput("password", "")
-	tc.SetInput("scope", "")
 	tc.SetInput("basicauth", "")
 	tc.SetInput("accessUrl", "")
 	act.Eval(tc)
