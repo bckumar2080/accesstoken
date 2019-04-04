@@ -27,8 +27,13 @@
             "name": "basicauth",
             "type": "string",
             "required": true
+        },
+		{
+            "name": "accessUrl",
+            "type": "string",
+            "required": true
         }
-    ],
+	],
     "outputs": [
         {
             "name": "accesstoken",
