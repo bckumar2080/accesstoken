@@ -55,7 +55,7 @@ func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 	scope := context.GetInput(ivScope).(string)
 	client_id := context.GetInput(ivclient_id).(string)
 	client_secret := context.GetInput(ivclient_secret).(string)
-	encodedAuth := b64.StdEncoding.EncodeToString([]byte(client_id:client_secret))
+	encodedAuth := b64.StdEncoding.EncodeToString([]byte(client_id,client_secret))
 
 	// Get the token from TIBCO Cloud Mashery
 	payload := strings.NewReader(fmt.Sprintf("grant_type=%s&username=%s&password=%s&scope=%s&client_id=%s&client_secret=%s", grantType, username, password, scope, client_id, client_secret))
