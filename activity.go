@@ -18,8 +18,8 @@ const (
 	ivUsername     = "username"
 	ivPassword     = "password"
 	ivScope        = "scope"
-	ivbasicauth    = "basicauth"
-	url            = "https://api.mashery.com/v3/token"
+	ivBasicAuth    = "basicauth"
+	ivUrl          = "accessUrl"
 	ovToken        = "accesstoken"
 	ovTokenType    = "tokentype"
 	ovExpires      = "expiresin"
@@ -51,8 +51,9 @@ func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 	// Get the user provided data
 	username := context.GetInput(ivUsername).(string)
 	password := context.GetInput(ivPassword).(string)
+	url := context.GetInput(ivUrl).(string)
 	scope := context.GetInput(ivScope).(string)
-	auth := context.GetInput(ivbasicauth).(string)
+    auth := context.GetInput(ivBasicAuth).(string)
 	encodedAuth := b64.StdEncoding.EncodeToString([]byte(auth))
 
 	// Get the token from TIBCO Cloud Mashery
