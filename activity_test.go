@@ -1,4 +1,4 @@
-package mashtoken
+package accesstoken
 
 import (
 	"fmt"
