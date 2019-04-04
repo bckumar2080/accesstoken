@@ -1,0 +1,59 @@
+{
+    "name": "accesstoken",
+    "type": "flogo:activity",
+    "ref": "github.com/bckumar2080/accesstoken",
+    "version": "0.2.0",
+    "title": "Access Token",
+    "description": "Get a Access Token",
+    "author": "retgits",
+    "homepage": "https://github.com/bckumar2080/accesstoken",
+    "inputs": [
+        {
+            "name": "username",
+            "type": "string",
+            "required": true
+        },
+        {
+            "name": "password",
+            "type": "string",
+            "required": true
+        },
+        {
+            "name": "scope",
+            "type": "string",
+            "required": true
+        },
+        {
+            "name": "client_id",
+            "type": "string",
+            "required": true
+        },
+		{
+            "name": "client_secret",
+            "type": "string",
+            "required": true
+        }
+    ],
+    "outputs": [
+        {
+            "name": "accesstoken",
+            "type": "string"
+        },
+        {
+            "name": "tokentype",
+            "type": "string"
+        },
+        {
+            "name": "expiresin",
+            "type": "string"
+        },
+        {
+            "name": "refreshtoken",
+            "type": "string"
+        },
+        {
+            "name": "scope",
+            "type": "string"
+        }
+    ]
+}
