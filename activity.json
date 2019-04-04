@@ -24,12 +24,7 @@
             "required": true
         },
         {
-            "name": "client_id",
-            "type": "string",
-            "required": true
-        },
-		{
-            "name": "client_secret",
+            "name": "basicauth",
             "type": "string",
             "required": true
         }
